@@ -22,9 +22,9 @@ public class ObjectArrayDriver {
 	
 	public static void printArray(PersonVO[] arr) {
 		int x = 1;
-		for(int i = 0; i < 3; i++) {
+		for(int idx = 0; idx < 3; idx++) {
 			System.out.println("idx : " + x);
-			PersonVO obj = arr[i];
+			PersonVO obj = arr[idx];
 			System.out.println(obj.perInfo());
 			x++;
 		}
