@@ -2,6 +2,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 import java.util.Vector;
 
 import com.sinc.intern.oop.model.vo.PersonVO;
@@ -19,10 +20,6 @@ public class CollectionMain {
 		}
 	}
 	
-	public static void printMap(Map<String, List<PersonVO> > personMap) {
-		
-	}
-	
 	public static void main(String[] args) {
 		List<PersonVO> li = new Vector<PersonVO>();
 		
@@ -34,11 +31,18 @@ public class CollectionMain {
 		
 		
 		Map<String, List<PersonVO> > m = new HashMap<String, List<PersonVO> >();
-		
 		m.put("intern", li);
 		
-		System.out.println(m.get("intern"));
-		printMap(m);
+		Map<String, String> ssm = new HashMap<String, String>();
+		ssm.put("id", "p90kfu");
+		ssm.put("pwd", "mypassword");
+		ssm.put("name", "aibees");
+		Set<String> keys = ssm.keySet();
+		Iterator<String> ssmIter = keys.iterator();
+		while(ssmIter.hasNext()) {
+			System.out.println(ssm.get(ssmIter.next()));
+		}
+		
 		
 		/*
 		 * Generic Type을 사용함으로써 얻을 수 있는 장점

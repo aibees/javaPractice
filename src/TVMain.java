@@ -6,12 +6,10 @@ public class TVMain {
 	public static void main(String[] args) {
 		BeanFactory tvFactory = BeanFactory.getInstance();
 		
-		TV s = tvFactory.getBrand("Samsung");
-		s.turnOn();
-		TV l = tvFactory.getBrand("Samsung");
-		l.turnOn();
-		
-		System.out.println("s addr : " + s + ", l addr : " + l);
+		TV tv = tvFactory.getBrand("sinc");
+		if(tv != null) {
+			tv.turnOn();
+		}
 		
 		/*
 		 * Client 에게 객체 생성을 맡기고 싶지 않으며

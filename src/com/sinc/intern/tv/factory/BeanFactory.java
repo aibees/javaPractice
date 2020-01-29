@@ -1,18 +1,19 @@
 package com.sinc.intern.tv.factory;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import com.sinc.intern.tv.model.vo.LgTV;
 import com.sinc.intern.tv.model.vo.SamsungTV;
 import com.sinc.intern.tv.util.TV;
 
 public class BeanFactory {
 	
-	private TV[] tvArray;
+	private Map<String, TV> tvBrand = new HashMap<String, TV>();
 	
 	// create Singleton Instance
 	private BeanFactory() {
-		tvArray = new TV[2];
-		tvArray[0] = new SamsungTV();
-		tvArray[1] = new LgTV();
+		createBrand();
 	}
 	private static BeanFactory Instance = null;
 	public static BeanFactory getInstance() {
@@ -26,18 +27,12 @@ public class BeanFactory {
 	
 	// Factory Pattern
 	
+	public void createBrand() {
+		tvBrand.put("Samsung", new SamsungTV());
+		tvBrand.put("LG", new LgTV());
+	}
 	
 	public TV getBrand(String brand) {
-		switch(brand) {
-		case "Samsung" :
-			return tvArray[0];
-		
-		case "LG" :
-			return tvArray[1];
-		default :
-			return null;
-		}
-		
-			
+		return tvBrand.get(brand);
 	}
 }
